@@ -1,0 +1,447 @@
+/*
+	Basic CSS Document
+	produce by World Agent
+	URL:http://worldagent.jp
+	Theme Name: Original-Thema
+	Author: worldagent
+	Template: Original-Thema
+*/
+
+ol,
+ul {
+  list-style: none;
+  padding: 0;
+}
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+a {
+  &:focus,
+  &:active,
+  &:visited {
+    outline: none !important;
+  }
+
+  -webkit-transition: 0.25s;
+  -moz-transition: 0.25s;
+  -o-transition: 0.25s;
+  transition: 0.25s;
+}
+body:hover {
+  -webkit-transition: 0s;
+  -moz-transition: 0s;
+  -o-transition: 0s;
+}
+
+//  font-family
+.serif {
+  font-family: "ヒラギノ明朝 Pro W3", "Hiragino Mincho Pro", "HiraMinProN-W3", "游明朝", "Yu Mincho", "游明朝体",
+    YuMincho, "HGS明朝E", "ＭＳ Ｐ明朝", "MS PMincho", serif;
+}
+.sans {
+  font-family: "Noto Sans JP", "游ゴシック Medium", "Yu Gothic Medium", "游ゴシック", "Yu Gothic", "游ゴシック体",
+    "YuGothic", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ ProN W3", Meiryo, "メイリオ", Osaka, "MS PGothic", arial,
+    helvetica, sans-serif;
+}
+
+//  width %
+.w100p {
+  width: 100%;
+}
+
+//  hr
+.hr {
+  border: 0;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  width: 100%;
+  height: 1px;
+  background-color: #333;
+}
+
+//  position
+.relative {
+  position: relative;
+}
+.absolute {
+  position: absolute;
+}
+
+//  font-weight
+.bold {
+  font-weight: bold;
+}
+.normal {
+  font-weight: normal;
+}
+
+//  line-height
+.lh_0 {
+  line-height: 0;
+}
+.lh_1 {
+  line-height: 1;
+}
+.lh_13 {
+  line-height: 1.3;
+}
+.lh_15 {
+  line-height: 1.5;
+}
+.lh_18 {
+  line-height: 1.8;
+}
+.lh_2 {
+  line-height: 2;
+}
+.lh_25 {
+  line-height: 2.5;
+}
+
+//  letter-spacing
+.ls_-1 {
+  letter-spacing: -1px;
+}
+.ls_-05 {
+  letter-spacing: -0.5px;
+}
+.ls_0 {
+  letter-spacing: 0px;
+}
+.ls_1 {
+  letter-spacing: 1px;
+}
+.ls_2 {
+  letter-spacing: 2px;
+}
+
+//  floating
+.fl_r {
+  float: right;
+}
+.fl_l {
+  float: left;
+}
+
+//  vertical-align
+.va_middle {
+  vertical-align: middle;
+}
+.va_top {
+  vertical-align: top;
+}
+.va_bottom {
+  vertical-align: bottom;
+}
+
+//  display
+.inline {
+  display: inline;
+}
+.i_block {
+  display: inline-block;
+}
+.block {
+  display: block;
+}
+.d_table {
+  display: table;
+}
+.t_cell {
+  display: table-cell;
+}
+
+//  font-color + bg-color
+@each $key, $value in $color {
+  .#{$key} {
+    color: $value;
+    a {
+      color: $value;
+    }
+  }
+  .bg_#{$key} {
+    background-color: $value;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  //  text-align
+  .sp_left {
+    text-align: left;
+  }
+  .sp_center {
+    text-align: center;
+  }
+}
+
+//  font-size
+.fs10 {
+  font-size: 10px;
+}
+.fs12 {
+  font-size: 12px;
+}
+
+$fs: 14;
+@while $fs < 50 {
+  .fs#{$fs} {
+    font-size: $fs + px;
+
+    @media only screen and (max-width: 767px) {
+      font-size: $fs - 2 + px;
+    }
+  }
+  $fs: $fs + 2;
+}
+
+@media only screen and (max-width: 767px) {
+  $spfs: 10;
+  @while $spfs <= 28 {
+    .spfs#{$spfs} {
+      font-size: $spfs + px;
+    }
+    $spfs: $spfs + 1;
+  }
+}
+
+//  margin padding
+.mgauto {
+  margin: auto;
+}
+.mgright {
+  margin-right: 0;
+  margin-left: auto;
+}
+.mg0 {
+  margin: 0;
+}
+
+$num: 0;
+@while $num <= 100 {
+  .mgt#{$num} {
+    margin-top: $num + px;
+  }
+  .mgr#{$num} {
+    margin-right: $num + px;
+  }
+  .mgb#{$num} {
+    margin-bottom: $num + px;
+  }
+  .mgl#{$num} {
+    margin-left: $num + px;
+  }
+
+  .pd#{$num} {
+    padding: $num + px;
+  }
+  .pdt#{$num} {
+    padding-top: $num + px;
+  }
+  .pdr#{$num} {
+    padding-right: $num + px;
+  }
+  .pdb#{$num} {
+    padding-bottom: $num + px;
+  }
+  .pdl#{$num} {
+    padding-left: $num + px;
+  }
+
+  $num: $num + 5;
+}
+
+// sm-gutters Class Rules
+.sm-gutters {
+  margin-right: -5px;
+  margin-left: -5px;
+
+  > {
+    [class^="col-"],
+    [class*=" col-"] {
+      padding-right: 5px;
+      padding-left: 5px;
+    }
+  }
+}
+
+// no-gutters Class Rules
+.no-gutters {
+  margin-right: 0;
+  margin-left: 0;
+
+  > {
+    [class^="col-"],
+    [class*=" col-"] {
+      padding-right: 0;
+      padding-left: 0;
+    }
+  }
+}
+
+@media screen and (max-width: 767px) {
+  // sp margin padding
+  .spmgauto {
+    margin-right: auto;
+    margin-left: auto;
+  }
+  .spmgright {
+    margin-right: 0;
+    margin-left: auto;
+  }
+
+  $spnum: 0;
+  @while $spnum <= 100 {
+    .spmgt#{$spnum} {
+      margin-top: $spnum + px;
+    }
+    .spmgr#{$spnum} {
+      margin-right: $spnum + px;
+    }
+    .spmgb#{$spnum} {
+      margin-bottom: $spnum + px;
+    }
+    .spmgl#{$spnum} {
+      margin-left: $spnum + px;
+    }
+
+    .sppd#{$spnum} {
+      padding: $spnum + px;
+    }
+    .sppdt#{$spnum} {
+      padding-top: $spnum + px;
+    }
+    .sppdr#{$spnum} {
+      padding-right: $spnum + px;
+    }
+    .sppdb#{$spnum} {
+      padding-bottom: $spnum + px;
+    }
+    .sppdl#{$spnum} {
+      padding-left: $spnum + px;
+    }
+
+    $spnum: $spnum + 5;
+  }
+
+  // sp-sm-gutters Class Rules
+  .sp-sm-gutters {
+    margin-right: -5px;
+    margin-left: -5px;
+
+    > {
+      [class^="col-"],
+      [class*=" col-"] {
+        padding-right: 5px;
+        padding-left: 5px;
+      }
+    }
+  }
+
+  // sp-gutters Class Rules
+  .sp-gutters {
+    margin-right: 0;
+    margin-left: 0;
+
+    > {
+      [class^="col-"],
+      [class*=" col-"] {
+        padding-right: 0;
+        padding-left: 0;
+      }
+    }
+  }
+}
+
+/* bootstrap grid width 20% */
+.col-xs-20,
+.col-sm-20,
+.col-md-20,
+.col-lg-20 {
+  position: relative;
+  min-height: 1px;
+  padding-right: 15px;
+  padding-left: 15px;
+}
+.col-xs-20 {
+  float: left;
+  width: 20%;
+}
+@media (min-width: 768px) {
+  .col-sm-20 {
+    float: left;
+    width: 20%;
+  }
+}
+@media (min-width: 992px) {
+  .col-md-20 {
+    float: left;
+    width: 20%;
+  }
+}
+@media (min-width: 1200px) {
+  .col-lg-20 {
+    float: left;
+    width: 20%;
+  }
+}
+
+//sidebar widget
+.noside {
+  #side {
+    display: none;
+  }
+  main {
+    .container {
+      max-width: 100%;
+      div {
+        max-width: 100%;
+      }
+    }
+  }
+}
+.reverse {
+  .main_content {
+    flex-direction: row-reverse;
+  }
+}
+.main_content {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+
+  .container {
+    max-width: 740px;
+  }
+}
+#side {
+  width: 250px;
+  margin: 0 1em;
+  h3 {
+    text-align: center;
+    font-size: 18px;
+    @media (max-width: 440px) {
+      font-size: 14px;
+    }
+    &::after {
+      content: "";
+      display: block;
+      height: 1px;
+      width: 100%;
+      background: linear-gradient(to right, #40bfa0 0%, #fef785 82%, #f37b7b 100%);
+      margin-top: 0.5em;
+    }
+  }
+  table {
+    width: 100%;
+    caption {
+      text-align: center;
+    }
+    th {
+      text-align: center;
+    }
+    td {
+      text-align: center;
+    }
+  }
+}

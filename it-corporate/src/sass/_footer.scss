@@ -1,0 +1,150 @@
+
+.wrap_reserve {
+	padding: 15px;
+	background-color: map-get($color, 'black');
+
+	> a {
+		display: block;
+		width: 100%;
+		max-width: 740px;
+		margin-left: auto;
+		margin-right: auto;
+		padding: 15px 10px;
+		font-weight: normal;
+		text-align: center;
+		color: #fff;
+		line-height: 1.2;
+
+		.times {
+			font-size: 24px;
+			letter-spacing: 2px;
+		}
+		.jp {
+			margin-top: 5px;
+			display: block;
+			font-size: 14px;
+			letter-spacing: 1px;
+		}
+	}
+
+	@include mq(xs) {
+		padding: 15px;
+
+		> a {
+			padding: 10px 5px;
+
+			.times {
+				font-size: 16px;
+				letter-spacing: 1px;
+			}
+			.jp {
+				margin-top: 0;
+				font-size: 12px;
+			}
+		}
+	}
+}
+
+
+.footer {
+	padding: 75px 15px 45px;
+
+	.foot_logo {
+		text-align: center;
+		> a {
+			display: inline-block;
+		}
+	}
+
+	.foot_link {
+		width: 100%;
+		max-width: 740px;
+		margin: 15px auto 30px;
+		font-size: 0;
+
+		> li {
+			width: 25%;
+			display: inline-block;
+			font-size: 14px;
+			vertical-align: top;
+			> a {
+				position: relative;
+				display: inline-block;
+				padding: 10px;
+				padding-left: 20px;
+				color: map-get($color, 'dgray');
+				letter-spacing: 1px;
+
+				&::before {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 21px;
+					left: 0;
+					width: 11px;
+					height: 1px;
+					background-color: map-get($color, 'dgray');
+				}
+				&::after {
+					content: '';
+					display: block;
+					position: absolute;
+					top: 16px;
+					left: 5px;
+					width: 1px;
+					height: 11px;
+					background-color: map-get($color, 'lblack');
+					transition: 0.3s;
+					opacity: 0;
+				}
+
+				&:hover, &:focus {
+					color: map-get($color, 'black');
+
+					&::before {
+						background-color: map-get($color, 'lblack');
+					}
+					&::after {
+						opacity: 1;
+					}
+				}
+			}
+		}
+	}
+
+	.copyright {
+		margin-bottom: 0;
+		text-align: center;
+		color: map-get($color, 'dgray');
+		font-size: 14px;
+		line-height: 1.2;
+	}
+
+	@include mq(xs) {
+		padding: 45px 15px 30px;
+
+		.foot_link {
+			margin: 10px auto 20px;
+			max-width: 380px;
+
+			> li {
+				width: 50%;
+				font-size: 12px;
+				> a {
+					padding: 6px 10px 6px 20px;
+
+					&::before {
+						top: 15px;
+					}
+					&::after {
+						top: 10px;
+					}
+				}
+			}
+		}
+
+		.copyright {
+			font-size: 12px;
+		}
+	}
+}

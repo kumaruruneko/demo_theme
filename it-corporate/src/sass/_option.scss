@@ -1,0 +1,179 @@
+$breakpoints: (
+	'xs': 'screen and (max-width: 767px)',
+	'xs-sm': 'screen and (min-width: 768px) and (max-width: 991px)',
+	'xs-': 'screen and (min-width: 768px)',
+	'sm': 'screen and (max-width: 991px)',
+	'sm-': 'screen and (min-width: 992px)',
+	'sm-lg': 'screen and (min-width: 992px) and (max-width: 1199px)',
+	'lg': 'screen and (max-width: 1199px)',
+	'lg-': 'screen and (min-width: 1200px)',
+	'lg-xl': 'screen and (min-width: 1200px) and (max-width: 1499px)',
+	'xl': 'screen and (max-width: 1499px)',
+	'xl-': 'screen and (min-width: 1500px)',
+);
+@mixin mq($breakpoint: xs) {
+	@media #{map-get($breakpoints, $breakpoint)} {
+		@content;
+	}
+}
+
+
+$color:(
+	'white': #FFF,
+	'gywhite': #f4f4f4,
+	'black': #111,
+	'lblack': #333,
+	'red': #F00,
+	'blue': #3D74BA,
+	'green': #306418,
+	'ltgray': #eee,
+	'lgray': #ddd,
+	'gray': #CCC,
+	'dgray': #aaa,
+	'orange': #ff7800,
+	'water': #e4f7f8,
+	'sky': #82d5ea,
+	'brown': #db7c0b,
+	'purple': #6A5367,
+	'beige': #f2e9e1,
+
+	'border': #ddd,
+	'label': #e2cbb6,
+);
+$theme:(
+	'c01': #a12f2f,
+	'c02': #dc7395,
+	'c03': #807093,
+	'c04': #46486a,
+	'c05': #273c77,
+	'c06': #688889,
+	'c07': #4e7064,
+	'c08': #778b50,
+	'c09': #d3ad40,
+	'c10': #c15e43,
+);
+@each $key, $value in $theme {
+	.theme_#{$key} {
+
+		// head
+		.header {
+			.drawer-nav {
+				.ul_nav {
+					> li {
+						&.c_btn {
+							> a {
+								color: #fff;
+								background-color: map-get($theme, $key);
+							}
+						}
+					}
+				}
+			}
+
+			@include mq(sm-) {
+				.drawer-nav {
+					.ul_nav {
+						> li {
+							> a {
+								&:hover, &:focus {
+									opacity: 1;
+
+									&::before {
+										border-bottom-color: map-get($theme, $key);
+									}
+								}
+							}
+							&.c_btn {
+								> a {
+									&:hover, &:focus {
+										color: map-get($theme, $key);
+										background-color: #fff;
+
+										&::before {
+											border-color: map-get($theme, $key);
+										}
+									}
+								}
+							}
+						}
+					}
+				}
+			}
+		}
+
+		// top
+		.box_plan {
+			> a {
+				&:hover, &:focus {
+					.title {
+						color: map-get($theme, $key);
+					}
+					.price {
+						color: map-get($theme, $key);
+					}
+				}
+			}
+		}
+		.btn_clear {
+			&:hover, &:focus {
+				background-color: map-get($theme, $key);
+				border-color: map-get($theme, $key);
+			}
+		}
+		.wrap_service {
+			.contents {
+				background-color: rgba(map-get($theme, $key), 0.1);
+			}
+		}
+
+		// news
+		.label {
+			&.cat {
+				background-color: map-get($theme, $key);
+			}
+		}
+
+		// foot
+		.wrap_reserve {
+			> a {
+				background-color: map-get($theme, $key);
+			}
+		}
+
+		// page
+		.sub_key {
+			background: rgba(map-get($theme, $key), 0.1);
+		}
+		.pagination a:hover{
+			color: #fff;
+			background-color: map-get($theme, $key);
+		}
+		.pagination .current{
+			color: #fff;
+			background-color: map-get($theme, $key);
+			border: 1px solid map-get($theme, $key);
+		}
+		.ul_flex {
+			> li {
+				> a {
+					&:hover, &.focus {
+						background-color: map-get($theme, $key);
+					}
+				}
+			}
+		}
+		.title_page {
+			&::before {
+				background-color: map-get($theme, $key);
+			}
+		}
+		.plan_detail {
+			> .contents {
+				> .title {
+					background-color: rgba(map-get($theme, $key), 0.1);
+				}
+			}
+		}
+
+	}
+}

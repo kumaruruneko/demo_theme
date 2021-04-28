@@ -1,0 +1,305 @@
+.header {
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  display: table;
+  background-color: #fff;
+  > * {
+    display: table-cell;
+    vertical-align: middle;
+  }
+
+  @include mq(xl-) {
+    .logo {
+      padding-left: 40px;
+      > a {
+        padding: 10px;
+        font-size: 24px;
+      }
+    }
+    .drawer-nav {
+      .ul_nav {
+        > li {
+          padding-left: 0;
+          > a {
+            height: 80px;
+            padding: 10px 30px;
+            font-size: 16px;
+            letter-spacing: 1px;
+          }
+
+          &.c_btn {
+            > a {
+              padding: 10px 40px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include mq(lg-xl) {
+    .logo {
+      padding-left: 30px;
+      > a {
+        padding: 10px;
+        font-size: 20px;
+      }
+    }
+    .drawer-nav {
+      .ul_nav {
+        > li {
+          > a {
+            height: 80px;
+            padding: 10px 20px;
+            font-size: 16px;
+            letter-spacing: 1px;
+          }
+
+          &.c_btn {
+            padding-left: 10px;
+            > a {
+              padding: 10px 30px;
+            }
+          }
+        }
+      }
+    }
+  }
+  @include mq(sm-lg) {
+    .logo {
+      padding-left: 10px;
+      > a {
+        padding: 10px 5px;
+        font-size: 18px;
+      }
+    }
+    .drawer-nav {
+      .ul_nav {
+        > li {
+          > a {
+            height: 80px;
+            padding: 10px 15px;
+            font-size: 14px;
+            letter-spacing: 1px;
+          }
+
+          &.c_btn {
+            padding-left: 0;
+            > a {
+              padding: 10px 15px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  @include mq(sm-) {
+    .logo {
+      width: 100%;
+      font-size: 0;
+      > a {
+        display: inline-block;
+        color: map-get($color, "black");
+        line-height: 1.2;
+        display: flex;
+        align-items: center;
+        img {
+          max-height: 60px;
+          margin-right: 1em;
+        }
+      }
+    }
+    .drawer-nav {
+      white-space: nowrap;
+      .ul_nav {
+        margin-bottom: 0;
+        line-height: 1.2;
+        text-align: right;
+        > li {
+          display: inline-block;
+          vertical-align: top;
+
+          > a {
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: normal;
+            text-align: center;
+            color: map-get($color, "lblack");
+
+            &::before {
+              content: "";
+              display: block;
+              position: absolute;
+              left: 0;
+              right: 0;
+              bottom: 0;
+              border-bottom: 4px solid transparent;
+            }
+          }
+
+          &.c_btn {
+            > a {
+              &::before {
+                top: 0;
+                border: 3px solid transparent;
+              }
+              > span {
+                .sans {
+                  display: block;
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+
+          &.sp_sns {
+            display: none;
+          }
+        }
+      }
+    }
+    .sp_btn {
+      display: none;
+    }
+  }
+
+  @include mq(sm) {
+    .logo {
+      z-index: 104;
+      position: relative;
+      background-color: #fff;
+      border-bottom: 1px solid map-get($color, "ltgray");
+      width: 100%;
+      font-size: 0;
+      > a {
+        padding: 15px;
+        display: inline-block;
+        font-size: 18px;
+        color: map-get($color, "black");
+        line-height: 1.2;
+
+        > img {
+          max-height: 65px;
+        }
+      }
+    }
+    .drawer-nav {
+      background-color: rgba(#fff, 0.9);
+      .ul_nav {
+        margin-bottom: 0;
+        line-height: 1.2;
+        > li {
+          display: block;
+
+          & + li {
+            border-top: 1px solid map-get($color, "lgray");
+          }
+
+          > a {
+            display: block;
+            padding: 16px 15px;
+            font-weight: normal;
+            text-align: center;
+            color: map-get($color, "lblack");
+            font-size: 16px;
+          }
+
+          &.c_btn {
+            margin-top: 10px;
+            border-top: 0;
+            > a {
+              color: #fff;
+              > span {
+                .sans {
+                  display: block;
+                  font-size: 12px;
+                }
+              }
+            }
+          }
+
+          &.sp_sns {
+            margin-top: 15px;
+            border-top: 0;
+          }
+        }
+      }
+    }
+    .sp_btn {
+      z-index: 104;
+      position: relative;
+      background-color: #fff;
+      border-bottom: 1px solid map-get($color, "ltgray");
+      padding-right: 10px;
+      > a {
+        border: 1px solid map-get($color, "lgray");
+      }
+    }
+  }
+}
+
+.ul_sns {
+  margin-bottom: 0;
+  text-align: center;
+  > li {
+    display: inline-block;
+    > a {
+      display: block;
+      padding: 10px 15px;
+      font-size: 20px;
+      color: map-get($color, "dgray");
+    }
+  }
+}
+
+// ######### DRAWER MENU #########
+@media (min-width: 992px) {
+  .drawer-nav {
+    position: static;
+    width: auto;
+    height: auto;
+    background-color: transparent;
+  }
+}
+@media (max-width: 991px) {
+  .drawer--left .drawer-hamburger,
+  .drawer--left.drawer-open .drawer-hamburger {
+    position: static;
+    left: auto;
+    width: 35px;
+    padding: 10px 10px 20px;
+  }
+  .drawer-hamburger-icon:after {
+    top: 7px;
+  }
+  .drawer-hamburger-icon:before {
+    top: -7px;
+  }
+  .hambuger_text {
+    display: inline-block;
+    margin-top: 13px;
+    font-size: 12px;
+    line-height: 1;
+  }
+  .drawer--left .drawer-nav {
+    left: 0;
+    top: auto;
+    bottom: -100%;
+    width: 100%;
+    height: 100%;
+    overflow: scroll;
+    transition: bottom 0.4s;
+  }
+  .drawer--left.drawer-open .drawer-nav {
+    bottom: 0;
+  }
+  .drawer-menu {
+    padding: 105px 10px 30px;
+  }
+}
+/* (max-width: 767px) END */
+// ######### DRAWER MENU END #########
